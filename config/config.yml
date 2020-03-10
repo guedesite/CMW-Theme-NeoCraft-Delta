@@ -1,0 +1,53 @@
+#Ce fichier contiens la config de base du serveur---
+Pied:
+    facebook: ""
+    twitter: ""
+    youtube: ""
+    discord: ""
+    -facebook: 'true'
+    -twitter: 'true'
+    -youtube: 'true'
+    -discord: 'true'
+accueil:
+    -titre: 'false'
+mod:
+    -mod: ""
+    -URL_WIND: ""
+    URL_WIND: ""
+    -URL_MAC: ""
+    URL_MAC: ""
+    -URL_LINUX: ""
+    URL_LINUX: ""
+    -URL_MOD_PACK: ""
+    URL_MOD_PACK: ""
+    -URL_EMBED: ""
+    URL_EMBED: ""
+    -CONFIG_LAUNCHER: ""
+    -CONFIG_MIN_OS: ""
+    CONFIG_MIN_OS: ""
+    -CONFIG_MIN_CPU: ""
+    CONFIG_MIN_CPU: ""
+    -CONFIG_MIN_RAM: ""
+    CONFIG_MIN_RAM: ""
+    -CONFIG_MIN_GPU: ""
+    CONFIG_MIN_GPU: ""
+    -CONFIG_MIN_JAVA: ""
+    CONFIG_MIN_JAVA: ""
+    -CONFIG_MIN_WIFI: ""
+    CONFIG_MIN_WIFI: ""
+    -CONFIG_MIN_CD: ""
+    CONFIG_MIN_CD: ""
+    -CONFIG_RECO_OS: ""
+    CONFIG_RECO_OS: ""
+    -CONFIG_RECO_CPU: ""
+    CONFIG_RECO_CPU: ""
+    -CONFIG_RECO_RAM: ""
+    CONFIG_RECO_RAM: ""
+    -CONFIG_RECO_GPU: ""
+    CONFIG_RECO_GPU: ""
+    -CONFIG_RECO_JAVA: ""
+    CONFIG_RECO_JAVA: ""
+    -CONFIG_RECO_WIFI: ""
+    CONFIG_RECO_WIFI: ""
+    -CONFIG_RECO_CD: ""
+    CONFIG_RECO_CD: ""
