@@ -9,7 +9,7 @@ Pied:
     -youtube: 'true'
     -discord: 'true'
 accueil:
-    -titre: 'false'
+    -titre: ""
 mod:
     -mod: ""
     -URL_WIND: ""
@@ -51,3 +51,8 @@ mod:
     CONFIG_RECO_WIFI: ""
     -CONFIG_RECO_CD: ""
     CONFIG_RECO_CD: ""
+ads:
+    -UseAds: 'true'
+    AdsUser: ca-pub-3496294583914660
+    AdsId: "9124380395"
+    -AdsId: 'true'

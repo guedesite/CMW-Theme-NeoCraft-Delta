@@ -115,7 +115,7 @@
 									<input class="neo-input neo-animate-input" type="text" placeholder="Votre nom d'utilisateur <?=$value['nom'];?>" name="<?=$value['nom'];?>" value="<?php if($joueurDonnees[$value['nom']] != 'inconnu') echo $joueurDonnees[$value['nom']]; ?>" style="width:60%">
 								<?php } ?>
 								<label style="margin-top:20px;" >Âge</label>
-								<input class="neo-input neo-animate-input" min="0" max="99" type="text" placeholder="17" name="<?=$value['nom'];?>" value="<?php if($joueurDonnees['age'] != 'inconnu') echo $joueurDonnees['age']; ?>" style="width:60%">
+								<input class="neo-input neo-animate-input" min="0" max="99" type="text" placeholder="17" name="age" value="<?php if($joueurDonnees['age'] != 'inconnu') echo $joueurDonnees['age']; ?>" style="width:60%">
 								<div class="form-group">
 									<label for="inputPassword3" class="col-sm-12 text-center control-label">Signature Forum</label>
 									<div class="col-md-12 text-center">

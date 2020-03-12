@@ -47,7 +47,7 @@
 							echo "</li>";
 						}
 						echo '</ul>';
-						echo "<a class='neo-button neo-green neo-hover-green hvr-bounce-in' href='?action=recupVotesTemp' title='Récupérer mes récompenses'>Récupérer mes récompenses (Connectez-vous sur le serveur)</a></center></div>";
+						echo "<a class='btn btn-success' href='?action=recupVotesTemp' title='Récupérer mes récompenses'>Récupérer mes récompenses (Connectez-vous sur le serveur)</a></center></div>";
 					}	
 				}
 				?>
@@ -58,7 +58,7 @@
 						 echo '<p>Veuillez relier votre serveur à votre site avec JsonAPI depuis le panel pour avoir les liens de vote !</p>';
 					for($i = 0; $i < count($jsonCon); $i++) { ?>
 										
-					<a href="javascript:openShop(event, 'categorie-<?php echo $i; ?>');" onclick="openShop(event, 'categorie-<?php echo $i; ?>');">
+					<a href="javascript:void(0)" onclick="openShop(event, 'categorie-<?php echo $i; ?>');">
 						<div class="hvr-backward neo-col <?php if($i == 0) { echo 'neo-border-gray'; } ?> tablink neo-bottombar  neo-hover-light-grey neo-padding" style="<?php if(count($jsonCon) == 1) { echo 'width:100%'; } elseif(count($jsonCon) == 2) { echo 'width:50%'; } elseif(count($jsonCon) == 3) { echo 'width:33.33%'; } elseif(count($jsonCon) == 4) { echo 'width:25%'; } elseif(count($jsonCon) == 5) { echo 'width:20%'; } elseif(count($jsonCon) == 6) { echo 'width:16.66%'; } elseif(count($jsonCon) == 7) { echo 'width:14.28%'; } elseif(count($jsonCon) == 8) { echo 'width:12.5%'; } elseif(count($jsonCon) == 9) { echo 'width:11.11%'; } elseif(count($jsonCon) == 10) { echo 'width:100%'; } ?>"><?php echo $lecture['Json'][$i]['nom']; ?></div>
 					 </a>
 					 
@@ -79,23 +79,8 @@
 									<center>Bienvenue dans la catégorie de vote pour le serveur : <?=$lecture['Json'][$i]['nom'];?></center>
 								</div>
 							</p>
-							<div style="text-align:center;">
-							
-							<?php if(!isset($_GET['player'])) { ?>	
-								<div class="panel-body" style="padding:10px;">
-									 <h4 class="panel-title text-center">Veuilliez rentrer votre pseudo éxact In-Game :</h4>
-										<form  id="forme-vote" role="form" method="GET" action="index.php">
-										<input type="text" style="display:none;" name="page" value="voter">
-											<div style="width:100%;margin-right:20%;margin-left:20%;" >
-												<div class="row">
-												 <input type="text" id="vote-pseudo" class="form-control col-12 col-sm-5 col-lg-5" name="player" placeholder="Pseudo" <?php if(isset($_Joueur_)) { echo 'value="'.$_Joueur_['pseudo'].'"'; }?> required>
-												<button class="neo-button neo-hover-green neo-green hvr-bounce-in col-12 col-sm-3 col-lg-3" onclick="" type="submit">Suivant !</button>
-											   </div>
-											</div>
-										</form>
-								</div>
-							<?php } else
-							{
+
+							<?php
 								$pseudo = htmlspecialchars($_GET['player']);
 								$req_vote->execute(array('serveur' => $i));
 								$count_req->execute(array('serveur' => $i));
@@ -117,8 +102,8 @@
 											echo '<button type="button" class="neo-button neo-gray" style="margin-top:5px; margin-right:5px;" disabled>'.GetTempsRestant($donnees['date_dernier'], $lectureVotes['temps'], $donnees).'</button>';
 										}
 										else if($action[0] != "jeton" || isset($_Joueur_))
-										{	
-											echo '<a href="'.$liensVotes['lien'].'" style="margin-top:5px;" id="btn-lien-'.$id.'" target="_blank" onclick="document.getElementById(\'btn-lien-'.$id.'\').style.display=\'none\';document.getElementById(\'btn-verif-'.$id.'\').style.display=\'inline\';bouclevote('.$id.',\''.$pseudo.'\');" class="neo-button neo-green hvr-bounce-in neo-hover-green" >'.$liensVotes['titre'].'</a>
+										{
+											echo '<a href="'.$liensVotes['lien'].'" style="margin-top:5px;" id="btn-lien-'.$id.'" target="_blank" onclick="document.getElementById(\'btn-lien-'.$id.'\').style.display=\'none\';document.getElementById(\'btn-verif-'.$id.'\').style.display=\'inline\';bouclevote('.$id.',\''.$pseudo.'\');" class="neo-button neo-green hvr-forward" >'.$liensVotes['titre'].'</a>
 												  <button id="btn-verif-'.$id.'" style="margin-top:5px; display:none;" type="button" class="neo-button neo-red" disabled>Vérification en cours ...</button>
 												  <button type="button" style="margin-top:5px; display:none;" id="btn-after-'.$id.'" class="neo-button neo-gray" disabled>'.TempsTotal($lectureVotes['temps']).'</button>
 												';
@@ -128,9 +113,7 @@
 										}
 									}
 								}
-							}
 								?>
-								</div>
 				</div>
 			<?php }  }?>
 			</div>
@@ -149,7 +132,7 @@
 				
 						<?php for($i = 0; $i < count($topVoteurs) AND $i < 10; $i++) { 
 						$Img = new ImgProfil($topVoteurs[$i]['pseudo'], 'pseudo');?>
-						<tr class="neo-white"><td><?php echo $i +1; ?></td><td><img src="<?=$Img->getImgToSize(30, $width, $height);?>" alt="" style="height:30px; width:30px;"/> <strong><?php echo $topVoteurs[$i]['pseudo']; ?></strong></td><td><?php echo $topVoteurs[$i]['nbre_votes']; ?></td></tr>
+						<tr class="neo-white"><td><?php echo $i +1; ?></td><td><img src="<?=$Img->getImgToSize(30, 30, 30);?>" alt="" /> <strong><?php echo $topVoteurs[$i]['pseudo']; ?></strong></td><td><?php echo $topVoteurs[$i]['nbre_votes']; ?></td></tr>
 						<?php }?>
 				</table>
 			</div>

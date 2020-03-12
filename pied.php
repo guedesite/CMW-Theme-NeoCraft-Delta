@@ -1,6 +1,6 @@
 ﻿<footer style="margin-top:-25px;margin-bottom:-25px;">
 	<div class="neo-bar neo-container neo-xbackground neo-row" >
-		<div class="neo-col neo-center-simple neo-margin-left-1" style="width:49%">
+		<div class="neo-col neo-center-simple neo-margin-left-1" style="<?php if($_Theme_['ads']['-AdsId'] == 'true') { echo 'width:32.33%;'; } else { echo 'width:49%;'; } ?>">
 			<div class="neo-border-bottom neo-center-simple" style="font-size:25px;">
 				<p class="neo-text">Réseaux sociaux</p>
 			</div>
@@ -31,7 +31,27 @@
 					 <?php } ?>
 			 </div>
 		</div>
-		<div class="neo-col neo-margin-right-1" style="text-align:center;width:49%">
+		<?php if($_Theme_['ads']['-AdsId'] == 'true') {  ?>
+		<div class="neo-col neo-margin-right-1" style="text-align:center; width:32.33%">
+			<div class="neo-border-bottom neo-center-simple" style="font-size:25px;">
+					<p class="neo-text">Publicité</p>
+			</div>
+			<div style="display:block;margin-top:20px;" class="neo-text">
+				<ins class="adsbygoogle"
+				style="display:block"
+				 data-ad-client="<?php echo $_Theme_['ads']['AdsUser']; ?>"
+				 data-ad-slot="<?php echo $_Theme_['ads']['AdsId']; ?>"
+				 data-ad-format="auto"
+				 data-full-width-responsive="true"></ins>
+			<script>
+				 (adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+
+
+		</div>
+		<?php } ?>
+		<div class="neo-col neo-margin-right-1" style="text-align:center; <?php if($_Theme_['ads']['-AdsId'] == 'true') { echo 'width:32.33%;'; } else { echo 'width:49%;'; } ?>">
 			<div class="neo-border-bottom neo-center-simple" style="font-size:25px;">
 					<p class="neo-text">Information</p>
 			</div>
@@ -43,7 +63,7 @@
 			soyez mature, et laisser ces mentions, merci.
 			
 			-->
-			<div  style="display:block;margin-top:20px;" class="neo-text">Thème <a class="neo-text" href="http://www.neocraft.fr/">NeoCraft Delta 2.0.3 </a> adapté par guedesite</div>
+			<div  style="display:block;margin-top:20px;" class="neo-text">Thème <a class="neo-text" href="http://www.neocraft.fr/">NeoCraft Delta 2.0.4 </a> adapté par guedesite</div>
 			<div  style="display:block;margin-top:10px;margin-bottom:10px;" class="neo-text">Tous droits réservés, site créé pour le serveur <?php echo $_Serveur_['General']['name']; ?></div>
 			<div  style="display:block;margin-top:10px;margin-bottom:10px;" class="neo-text"><a class="neo-text" href="http://craftmywebsite.fr">CraftMyWebsite.fr</a>#<?php echo $versioncms; ?> </div>
 

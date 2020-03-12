@@ -90,8 +90,8 @@ if(isset($_Joueur_))
 
 <button  data-wow-delay="1s"  class="neo-hover-gray neo-margin-left-5 neo-float-left neo-button wow fadeInDown hvr-forward "> <i class="fas fa-wifi"></i> <?php echo $playeronline; ?> en ligne</button>
 </div>
-
-<header class="heading" style="background-image: url('heme/<?php echo $_Serveur_['General']['theme']; ?>/img/fond.jpg');background-size: cover;<?php if($_Theme_['accueil']['-titre'] != 'true') { ?>height:auto;<?php  } else {  ?>height:200px;<?php  } ?>">
+<?php if($_Theme_['accueil']['-titre'] != 'true') { ?>
+<header class="heading" style="background-image: url('theme/<?php echo $_Serveur_['General']['theme']; ?>/img/fond.jpg');background-size: cover;height:auto;">
 <?php if($_Theme_['accueil']['-titre'] != 'true') { ?>
 	<div class="heading-mask">
 		<div class="container" style="text-align:center;">
@@ -101,6 +101,10 @@ if(isset($_Joueur_))
 	</div>
 	<?php  } ?>
 </header>
+<?php  } else {  ?>
+
+<img src="theme/<?php echo $_Serveur_['General']['theme']; ?>/img/fondSansTitre.jpg" style="height:auto;width:100%" />
+<?php  } ?>
 
 
 <div class="neo-bar neo-large neo-xbackground neo-center-simple" >
@@ -109,7 +113,7 @@ if(isset($_Joueur_))
 	<?php 
 
 
-	for($o = count($_Menu_['MenuTexte']); $o >= 0; $o--)
+	for($o = 0; $o< count($_Menu_['MenuTexte']); $o++)
 	{
 		if(isset($_Menu_['MenuListeDeroulante'][$_Menu_['MenuTexteBB'][$o]]))
 		{ ?>
@@ -143,7 +147,7 @@ if(isset($_Joueur_))
 	<div  class="neo-show-large neo-dropdown-click">
 		<button  onclick="var x = document.getElementById('menu-nav'); if (x.className.indexOf('neo-show') == -1) { x.className += ' neo-show'; } else {  x.className = x.className.replace(' neo-show', ''); }" class=" neo-button wow fadeInDown hvr-bounce-in" data-wow-delay="1s" >Navigation <i class="fa fa-caret-down"></i></button>
 			 <div id="menu-nav" class="neo-dropdown-content neo-bar-block neo-border">
-				<?php for($o = count($_Menu_['MenuTexte']); $o >= 0; $o--)
+				<?php for($o = 0; $o < count($_Menu_['MenuTexte']); $o++)
 					{
 						if(isset($_Menu_['MenuListeDeroulante'][$_Menu_['MenuTexteBB'][$o]]))
 						{ ?>

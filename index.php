@@ -45,7 +45,13 @@ $versionT = file_get_contents('theme/'.$_Serveur_['General']['theme'].'/version.
 	<link rel="stylesheet" href="theme/<?php echo $_Serveur_['General']['theme']; ?>/css/snarl.min.css"></link>
 	<link rel="stylesheet" href="theme/<?php echo $_Serveur_['General']['theme']; ?>/css/forum.css"></link>
 	<script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/form.js"></script>
-	<?php if(file_exists('favicon.ico')) { echo '<link rel="icon" type="image/x-icon" href="favicon.ico"></link>'; } ?>
+	<?php if(file_exists('favicon.ico')) { echo '<link rel="icon" type="image/x-icon" href="favicon.ico"></link>'; }
+	
+	if($_Theme_['ads']['-UseAds'] == 'true')
+	{
+		echo '<script data-ad-client="'.$_Theme_['ads']['AdsUser'].'" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>';
+	}
+	?>
 	<title><?php echo $_Serveur_['General']['description'] ?></title>
 </head>
 <body class="neo-background-image neo-padding-16">

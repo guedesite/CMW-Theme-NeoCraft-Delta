@@ -72,6 +72,11 @@ if($_Joueur_['rang'] == 1 OR $_PGrades_['PermsPanel']['theme']['actions']['editT
 	
 	$ecritureTheme['mod']['-CONFIG_RECO_CD'] = htmlspecialchars($_POST['-CONFIG_RECO_CD']);
 	$ecritureTheme['mod']['CONFIG_RECO_CD'] = htmlspecialchars($_POST['CONFIG_RECO_CD']);
+	
+	$ecritureTheme['ads']['-UseAds'] = htmlspecialchars($_POST['-UseAds']);
+	$ecritureTheme['ads']['AdsUser'] = htmlspecialchars($_POST['AdsUser']);
+	$ecritureTheme['ads']['AdsId'] = htmlspecialchars($_POST['AdsId']);
+	$ecritureTheme['ads']['-AdsId'] = htmlspecialchars($_POST['-AdsId']);
 
 	
 	$ecriture = new Ecrire('theme/'.$_Serveur_['General']['theme'].'/config/config.yml', $ecritureTheme);
