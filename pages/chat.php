@@ -2,7 +2,7 @@
 		<div class="neo-line-headline" style="width: 100%"><h2><em><strong><span style="font-size:40px">Chat Minecraft</span></strong></em></h2></div>
 	</div>
 
-		<?php if(count($jsonCon) > 1) {
+		<?php if(count($jsonCon) > 0) {
 				$Chat = new Chat($jsonCon);?>
 				<div class="neo-xbackground-50 neo-radius">
 					<div class="neo-row-padding" style="padding:10px;">

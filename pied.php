@@ -1,6 +1,6 @@
 ﻿<footer style="margin-top:-25px;margin-bottom:-25px;">
 	<div class="neo-bar neo-container neo-xbackground neo-row" >
-		<div class="neo-col neo-center-simple neo-margin-left-1" style="<?php if($_Theme_['ads']['-AdsId'] == 'true') { echo 'width:32.33%;'; } else { echo 'width:49%;'; } ?>">
+		<div class="neo-col neo-center-simple neo-margin-left-1" style="<?php if($_Theme_['ads']['-AdsId'] == 'true') { echo 'width:33%;'; } else { echo 'width:49%;'; } ?>">
 			<div class="neo-border-bottom neo-center-simple" style="font-size:25px;">
 				<p class="neo-text">Réseaux sociaux</p>
 			</div>
@@ -32,7 +32,7 @@
 			 </div>
 		</div>
 		<?php if($_Theme_['ads']['-AdsId'] == 'true') {  ?>
-		<div class="neo-col neo-margin-right-1" style="text-align:center; width:32.33%">
+		<div class="neo-col" style="text-align:center; width:31%">
 			<div class="neo-border-bottom neo-center-simple" style="font-size:25px;">
 					<p class="neo-text">Publicité</p>
 			</div>
@@ -51,7 +51,7 @@
 
 		</div>
 		<?php } ?>
-		<div class="neo-col neo-margin-right-1" style="text-align:center; <?php if($_Theme_['ads']['-AdsId'] == 'true') { echo 'width:32.33%;'; } else { echo 'width:49%;'; } ?>">
+		<div class="neo-col neo-margin-right-1" style="text-align:center; <?php if($_Theme_['ads']['-AdsId'] == 'true') { echo 'width:33%;'; } else { echo 'width:49%;'; } ?>">
 			<div class="neo-border-bottom neo-center-simple" style="font-size:25px;">
 					<p class="neo-text">Information</p>
 			</div>

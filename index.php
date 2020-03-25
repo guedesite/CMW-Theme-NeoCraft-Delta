@@ -55,6 +55,7 @@ $versionT = file_get_contents('theme/'.$_Serveur_['General']['theme'].'/version.
 	<title><?php echo $_Serveur_['General']['description'] ?></title>
 </head>
 <body class="neo-background-image neo-padding-16">
+
 	<?php if(isset($_Joueur_)) { setcookie('pseudo', $_Joueur_['pseudo'], time() + 86400, null, null, false, true);  }
 	include('theme/' .$_Serveur_['General']['theme']. '/entete.php');
 	tempMess();

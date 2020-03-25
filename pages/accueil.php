@@ -17,7 +17,7 @@
 					</div>
 			<?php } ?>
 		</div>
-	<div id="Modal-index" class="neo-modal" onclick="this.style.display='none'">
+	<div id="Modal-index" class="neo-modal" style="z-index:99;" onclick="this.style.display='none'">
 	  <div class="neo-modal-content neo-animate-zoom">
 	  <span class="neo-button neo-hover-gray neo-xlarge neo-display-topright" style="background-color:rgba(255, 255, 255, 0.3)">&times;</span>
 		<img id="Modal-img" style="width:100%">

@@ -6,7 +6,8 @@
 
 		<div class="tabbable">
 			<?php if(isset($_Joueur_) AND $_GET['profil'] == $_Joueur_['pseudo']) { ?>	
-				<div class="neo-row-padding" style="padding:10px;">
+			<div class="neo-xbackground-50 neo-radius" style="padding:10px;">
+				<div class="neo-row-padding">
 					 <a href="javascript:void(0)" onclick="openShop(event, 'categorie-0');">
 						<div class="hvr-backward neo-col neo-border-gray tablink neo-bottombar neo-hover-light-grey neo-padding" style="width:33.33%;">Mes infos</div>
 					 </a>
@@ -18,6 +19,7 @@
 					 </a>
 
 				</div>
+			</div>
 				<?php 
 				if(isset($_GET['erreur']))
 				{

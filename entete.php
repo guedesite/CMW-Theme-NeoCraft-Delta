@@ -90,21 +90,23 @@ if(isset($_Joueur_))
 
 <button  data-wow-delay="1s"  class="neo-hover-gray neo-margin-left-5 neo-float-left neo-button wow fadeInDown hvr-forward "> <i class="fas fa-wifi"></i> <?php echo $playeronline; ?> en ligne</button>
 </div>
+<div id="particle-canvas" style="position:absolute;width:100%;height:auto;z-index:20;top:0;left:0;margin-top:20px;margin-bottom:-5px;" >
 <?php if($_Theme_['accueil']['-titre'] != 'true') { ?>
-<header class="heading" style="background-image: url('theme/<?php echo $_Serveur_['General']['theme']; ?>/img/fond.jpg');background-size: cover;height:auto;">
-<?php if($_Theme_['accueil']['-titre'] != 'true') { ?>
-	<div class="heading-mask">
-		<div class="container" style="text-align:center;">
-			<h1  class=" text-uppercase wow zoomInLeft"  data-wow-delay="1s"><div style='font-size:120px;color: #595858;font-family:verdana,geneva,sans-serif'><?php echo $_Serveur_['General']['name']; ?></div></h1>
-			<h2 class=" text-uppercase wow zoomInLeft" data-wow-delay="1s"><?php if($_Theme_['mod']['-mod'] != 'true') { echo $_Serveur_['General']['ipTexte']; } else { ?><a href="#" onclick="document.getElementById('mod').style.display='block'">Télécharger le launcher</a><?php } ?></h2>
+<div style="position:absolute;width:100%;height:auto;z-index:-9" >
+	<header class="heading" id="content-under" style="background-image: url('theme/<?php echo $_Serveur_['General']['theme']; ?>/img/fond.jpg');background-size: cover;height:auto;">
+		<div class="heading-mask">
+			<div class="container" style="text-align:center;">
+				<h1  class=" text-uppercase wow zoomInLeft"  data-wow-delay="1s"><div style='font-size:120px;color: #595858;font-family:verdana,geneva,sans-serif'><?php echo $_Serveur_['General']['name']; ?></div></h1>
+				<h2 class=" text-uppercase wow zoomInLeft" data-wow-delay="1s"><?php if($_Theme_['mod']['-mod'] != 'true') { echo $_Serveur_['General']['ipTexte']; } else { ?><a href="#" onclick="document.getElementById('mod').style.display='block'">Télécharger le launcher</a><?php } ?></h2>
+			</div>
 		</div>
-	</div>
-	<?php  } ?>
-</header>
+	</header>
+</div>
 <?php  } else {  ?>
 
-<img src="theme/<?php echo $_Serveur_['General']['theme']; ?>/img/fondSansTitre.jpg" style="height:auto;width:100%" />
+<img id="content-under" src="theme/<?php echo $_Serveur_['General']['theme']; ?>/img/fondSansTitre.jpg" style="height:auto;width:100%" />
 <?php  } ?>
+</div>
 
 
 <div class="neo-bar neo-large neo-xbackground neo-center-simple" >
