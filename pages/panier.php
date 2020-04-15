@@ -1,4 +1,4 @@
-
+<?php if(isset($_Joueur_)){?>
 <div class="neo-content-headline">
 	<div class="neo-line-headline" style="width: 100%"><h2><em><strong><span style="font-size:40px"><i class="fa fa-shopping-basket"></i> Panier</span></strong></em></h2></div>
 </div>
@@ -74,5 +74,5 @@
 		
 	
 	</div>
-
+<?php }else{ header('Location: ?page=boutique'); }?>
 	

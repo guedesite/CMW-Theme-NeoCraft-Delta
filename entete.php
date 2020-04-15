@@ -97,13 +97,12 @@ if(isset($_Joueur_))
 		<div class="heading-mask">
 			<div class="container" style="text-align:center;">
 				<h1  class=" text-uppercase wow zoomInLeft"  data-wow-delay="1s"><div style='font-size:120px;color: #595858;font-family:verdana,geneva,sans-serif'><?php echo $_Serveur_['General']['name']; ?></div></h1>
-				<h2 class=" text-uppercase wow zoomInLeft" data-wow-delay="1s"><?php if($_Theme_['mod']['-mod'] != 'true') { echo $_Serveur_['General']['ipTexte']; } else { ?><a href="#" onclick="document.getElementById('mod').style.display='block'">Télécharger le launcher</a><?php } ?></h2>
+				<h2 class=" text-uppercase wow zoomInLeft" data-wow-delay="1s"><?php if($_Theme_['mod']['-mod'] != 'true') { if(!empty($_Serveur_['General']['ipTexte'])){ 	echo 'Adresse : <b>'.$_Serveur_['General']['ipTexte'].'</b>'; }else{ echo 'Adresse inexistante !'; } } else { ?><a href="#" onclick="document.getElementById('mod').style.display='block'">Télécharger le launcher</a><?php } ?></h2>
 			</div>
 		</div>
 	</header>
 </div>
 <?php  } else {  ?>
-
 <img id="content-under" src="theme/<?php echo $_Serveur_['General']['theme']; ?>/img/fondSansTitre.jpg" style="height:auto;width:100%" />
 <?php  } ?>
 </div>

@@ -17,39 +17,64 @@
 	<div class="neo-center">
 			<div class="tabbable">
 				<?php 
-				if(isset($_Joueur_))
+
+		if(isset($_Joueur_) AND  isset($_GET['player']) AND $_Joueur_['pseudo'] == $_GET['player'] )
+		{
+			if(!empty($donneesVotesTemp))
+			{
+				echo '<div class="alert alert-success"><center><ul style="list-style-position: inside; padding-left: 0px;">';
+				$p=0;
+				$list = array();
+				$listNum = array();
+				foreach($donneesVotesTemp as $data)
 				{
-					if(!empty($donneesVotesTemp))
-					{
-						echo '<div class="alert alert-success"><center><ul style="list-style-position: inside; padding-left: 0px;">';
-						foreach($donneesVotesTemp as $data)
+					$flag = false;
+					$temp = '<li>';
+						$action = explode(':', $data['action'], 2);
+						if($action[0] == "give")
 						{
-							echo '<li>';
-							$action = explode(':', $data['action'], 2);
-							if($action[0] == "give")
-							{
-								echo "Give de ";
-								$action = explode(':', $action[1]);
-								echo $action[3]. "x ".$action[1];
-								if($data['methode'] == 2)
-									echo ' sur le serveur '.$lecture['Json'][$data['serveur']]['nom'];
-								else
-									echo ' sur tout les serveurs de jeu';
-							}
-							elseif($action[0] == "jeton")
-							{
-								echo "Give de ".$action[1]." jetons sur le site";
-							}
+							$temp .="Give de ";
+							$action = explode(':', $action[1]);
+							$temp .=$action[3]. "x ".$action[1];
+							if($data['methode'] == 2)
+								$temp .=' sur le serveur '.$lecture['Json'][$data['serveur']]['nom'];
 							else
-							{
-								echo "Vous récupérerez une surprise :D :P";
-							}
-							echo "</li>";
+								$temp .=' sur tout les serveurs de jeu';
 						}
-						echo '</ul>';
-						echo "<a class='neo-button neo-green neo-hover-green hvr-bounce-in' href='?action=recupVotesTemp' title='Récupérer mes récompenses'>Récupérer mes récompenses (Connectez-vous sur le serveur)</a></center></div>";
-					}	
+						elseif($action[0] == "jeton")
+						{
+							$temp .="Give de ".$action[1]." jetons sur le site";
+						}
+						else
+						{
+							$temp .="Vous récupérerez une surprise :D :P";
+						}
+
+					for($a=0;$a<count($list); $a++) {
+						if($list[$a] == $temp) {
+							$listNum[$a]++;
+							$flag=true;
+						}
+					}
+					if(!$flag) {
+						$list[$p] = $temp;
+						$listNum[$p]=1;
+						$p++;
+					}
 				}
+				
+				for($y=0; $y<$p;$y++) {
+					if($listNum[$y] > 1) {
+						echo $list[$y]." X".$listNum[$y]."</li>";
+					} else {
+						echo $list[$y]."</li>";
+					}
+				}
+				
+				echo "<a class='neo-button neo-green neo-hover-green hvr-bounce-in' href='?action=recupVotesTemp' title='Récupérer mes récompenses'>Récupérer mes récompenses (Connectez-vous sur le serveur)</a></center></div>";
+			}
+
+		}
 				?>
 				<div class=" neo-radius neo-xbackground-50" style="padding:10px;">
 					<div class="neo-row-padding ">
@@ -96,7 +121,22 @@
 								</div>
 							<?php } else
 							{
+							
+								
+							
+							
 								$pseudo = htmlspecialchars($_GET['player']);
+								
+								$enligne = false;
+								foreach($serveurStats[$i]['joueurs'] as $key => $value)
+								{
+									$serveurStats[$i]['joueurs'][$key] = strtolower($value);
+									if(isset($pseudo) AND isset($serveurStats[$i]['joueurs']) AND $serveurStats[$i]['joueurs'] AND in_array(strtolower($pseudo), $serveurStats[$i]['joueurs']))
+									{
+										$enligne = true;
+									}
+								}
+	
 								$req_vote->execute(array('serveur' => $i));
 								$count_req->execute(array('serveur' => $i));
 								$data_count = $count_req->fetch();
@@ -117,18 +157,23 @@
 											echo '<button type="button" class="neo-button neo-gray" style="margin-top:5px; margin-right:5px;" disabled>'.GetTempsRestant($donnees['date_dernier'], $lectureVotes['temps'], $donnees).'</button>';
 										}
 										else if($action[0] != "jeton" || isset($_Joueur_))
-										{	
-											echo '<a href="'.$liensVotes['lien'].'" style="margin-top:5px;" id="btn-lien-'.$id.'" target="_blank" onclick="document.getElementById(\'btn-lien-'.$id.'\').style.display=\'none\';document.getElementById(\'btn-verif-'.$id.'\').style.display=\'inline\';bouclevote('.$id.',\''.$pseudo.'\');" class="neo-button neo-green hvr-bounce-in neo-hover-green" >'.$liensVotes['titre'].'</a>
-												  <button id="btn-verif-'.$id.'" style="margin-top:5px; display:none;" type="button" class="neo-button neo-red" disabled>Vérification en cours ...</button>
-												  <button type="button" style="margin-top:5px; display:none;" id="btn-after-'.$id.'" class="neo-button neo-gray" disabled>'.TempsTotal($lectureVotes['temps']).'</button>
-												';
+										{
+											if($lectureVotes['enligne'] == 1 && !$enligne) 
+											{
+												echo '<button type="button" class="neo-button neo-red" style="margin-top:5px; margin-right:5px;" disabled>Vous devez être connecté sur le serveur pour pouvoir voter sur ce site.</button>';
+										
+											} else {
+												echo '<a href="'.$liensVotes['lien'].'" style="margin-top:5px;" id="btn-lien-'.$id.'" target="_blank" onclick="document.getElementById(\'btn-lien-'.$id.'\').style.display=\'none\';document.getElementById(\'btn-verif-'.$id.'\').style.display=\'inline\';bouclevote('.$id.',\''.$pseudo.'\');" class="neo-button neo-green hvr-bounce-in neo-hover-green" >'.$liensVotes['titre'].'</a>
+													  <button id="btn-verif-'.$id.'" style="margin-top:5px; display:none;" type="button" class="neo-button neo-red" disabled>Vérification en cours ...</button>
+													  <button type="button" style="margin-top:5px; display:none;" id="btn-after-'.$id.'" class="neo-button neo-gray" disabled>'.TempsTotal($lectureVotes['temps']).'</button>
+													';
+											}
 										} else {
-											echo '<button type="button" class="neo-button neo-red" style="margin-top:5px; margin-right:5px;" disabled>Vous devez être connecté pour pouvoir voter sur ce site.</button>';
+											echo '<button type="button" class="neo-button neo-red" style="margin-top:5px; margin-right:5px;" disabled>Vous devez être connecté sur le site pour pouvoir voter sur ce site.</button>';
 										
 										}
 									}
 								}
-							}
 								?>
 								</div>
 				</div>
@@ -149,7 +194,7 @@
 				
 						<?php for($i = 0; $i < count($topVoteurs) AND $i < 10; $i++) { 
 						$Img = new ImgProfil($topVoteurs[$i]['pseudo'], 'pseudo');?>
-						<tr class="neo-white"><td><?php echo $i +1; ?></td><td><img src="<?=$Img->getImgToSize(30, $width, $height);?>" alt="" style="height:30px; width:30px;"/> <strong><?php echo $topVoteurs[$i]['pseudo']; ?></strong></td><td><?php echo $topVoteurs[$i]['nbre_votes']; ?></td></tr>
+						<tr class="neo-white"><td><?php echo $i +1; ?></td><td><img src="<?=$Img->getImgToSize(30, $width, $height);?>" alt="" style="height:30px; width:30px;"/> <strong><?php echo $topVoteurs[$i]['pseudo']; ?></strong></td><td id="nbr-vote-<?php echo $topVoteurs[$i]['pseudo']; ?>"><?php echo $topVoteurs[$i]['nbre_votes']; ?></td></tr>
 						<?php }?>
 				</table>
 			</div>
