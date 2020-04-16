@@ -1,9 +1,7 @@
 <?php
 require('theme/'. $_Serveur_['General']['theme'] . '/preload.php'); 
 require('include/version.php');
-require('theme/'. $_Serveur_['General']['theme'] . '/config/configTheme.php');
-$versionS = file_get_contents('http://www.neocraft.fr/version/ND/version.txt');
-$versionT = file_get_contents('theme/'.$_Serveur_['General']['theme'].'/version.txt'); ?>
+require('theme/'. $_Serveur_['General']['theme'] . '/config/configTheme.php');?>
 <!DOCTYPE html>
 <html>
 <head lang="fr_FR">
@@ -81,9 +79,11 @@ $versionT = file_get_contents('theme/'.$_Serveur_['General']['theme'].'/version.
 	echo '<div class="container neo-container-image" style="background-image: url(\'theme/'.$_Serveur_['General']['theme'].'/img/fondback.jpg\');">';
 	include('controleur/page.php'); 
 	echo '</div>'; } 
-include('theme/' .$_Serveur_['General']['theme']. '/pied.php'); ?>
-<?php include('theme/' .$_Serveur_['General']['theme']. '/formulaires.php'); 
-if($versionS > $versionT AND $_Joueur_['rang'] == 1) { ?>
+include('theme/' .$_Serveur_['General']['theme']. '/pied.php'); 
+if($_Joueur_['rang'] == 1) { 
+$versionS = file_get_contents('https://www.neocraft.fr/version/NO/version.txt');
+$versionT = file_get_contents('theme/'.$_Serveur_['General']['theme'].'/version.txt'); 
+if($versionS > $versionT) {?>
 <div class="neo-modal" id="MajModal" style="z-index:53;">
 	<div class="neo-modal-content neo-animate-zoom"  style="background-color: rgba(51, 51, 51, 0.5);color:#FFF;width:40%">
 		<div class="neo-container">
@@ -104,7 +104,7 @@ if($versionS > $versionT AND $_Joueur_['rang'] == 1) { ?>
 		</div>
 </div>
 <script>document.getElementById('MajModal').style.display='block'</script>
-<?php } 
+<?php } }
 ?>
 <div id="divScroll" class="neo-button neo-light-gray neo-animate-bottom" onclick="goToTop()"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>
 <script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/jquery.min.js"></script>
