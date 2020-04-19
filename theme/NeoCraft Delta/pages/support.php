@@ -254,8 +254,6 @@
 					{
 				?>
 				<a data-toggle="collapse" data-parent="#ticketCree" href="#ticketCree" class="neo-button neo-green"><i class="fa fa-pencil-square-o"></i> Poster un ticket !</a>
-				</div>
-		  </div>
 
 				<div class="collapse neo-center" id="ticketCree">
 					<div class="card">
@@ -325,6 +323,8 @@
 					</div>
 				</div>
 				<?php } ?>
+								</div>
+		  </div>
 <script>
 var nbEnvoie = 0
 	function envoie_ticket()
@@ -347,5 +347,3 @@ var nbEnvoie = 0
 		}
 	}
 </script>
-	</div>
-</div>

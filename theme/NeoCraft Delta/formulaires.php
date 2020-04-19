@@ -103,6 +103,11 @@
 										
 										<label style="margin-top:15px;" class="neo-text">Adresse Mail</label>
 										<input class="neo-input neo-border " type="email" name="email" id="EmailInscriptionForm" style="width:100%" placeholder="Vueilliez rentrer une email valide" required>
+										
+										<label style="margin-top:15px;" class="neo-text">Age</label>
+										<input class="neo-input neo-border " type="number" value="0" min="0" max="99" name="age"  style="width:100%" required>
+										
+										<label style="margin-top:15px;" class="neo-text"><input type="checkbox" name="show_email" value="true"> Rendre votre adresse email publique</label>
 
 										
 										
