@@ -90,10 +90,10 @@ if(isset($_Joueur_))
 
 <button  data-wow-delay="1s"  class="neo-hover-gray neo-margin-left-5 neo-float-left neo-button wow fadeInDown hvr-forward "> <i class="fas fa-wifi"></i> <?php echo $playeronline; ?> en ligne</button>
 </div>
-<div id="particle-canvas" style="position:absolute;width:100%;height:auto;z-index:20;top:0;left:0;margin-top:20px;margin-bottom:-5px;" >
+<div id="particle-canvas" style="position:absolute;width:100%;height:auto;z-index:20;top:0;left:0;margin-top:20px;margin-bottom:-5px;cursor:pointer" onclick="<?php if($_Theme_['mod']['-mod'] != 'true') { if(!empty($_Serveur_['General']['ipTexte'])){ 	echo 'CopyText();'; } } else { ?>document.getElementById('mod').style.display='block'<?php } ?>">
 <?php if($_Theme_['accueil']['-titre'] != 'true') { ?>
 <div style="position:absolute;width:100%;height:auto;z-index:-9" >
-	<header class="heading" id="content-under" style="background-image: url('theme/<?php echo $_Serveur_['General']['theme']; ?>/img/fond.jpg');background-size: cover;height:auto;">
+	<header class="heading" id="content-under"  style="background-image: url('theme/<?php echo $_Serveur_['General']['theme']; ?>/img/fond.jpg');background-size: cover;height:auto;">
 		<div class="heading-mask">
 			<div class="container" style="text-align:center;">
 				<h1  class=" text-uppercase wow zoomInLeft"  data-wow-delay="1s"><div style='font-size:120px;color: #595858;font-family:verdana,geneva,sans-serif'><?php echo $_Serveur_['General']['name']; ?></div></h1>

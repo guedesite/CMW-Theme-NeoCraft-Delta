@@ -107,6 +107,7 @@ if($versionS > $versionT) {?>
 <?php } }
 ?>
 <div id="divScroll" class="neo-button neo-light-gray neo-animate-bottom" onclick="goToTop()"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>
+<input type="text" id="servip"value="<?php echo $_Serveur_['General']['ipTexte']; ?>" style="position:absolute;z-index=-9999; top:0;  left:0;">
 <script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/jquery.min.js"></script>
 <script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/popper.min.js"></script>
 <script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/bootstrap.min.js"></script>
