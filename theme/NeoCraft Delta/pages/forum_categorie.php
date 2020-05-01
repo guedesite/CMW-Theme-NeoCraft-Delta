@@ -264,7 +264,7 @@
 			<?php
 		} 
 		?></div><?php
-	if(isset($_Joueur_) && ((($categoried['close'] == 0 AND $sousforumd['close'] == 0) OR ($_Joueur_['rang'] == 1 OR $_PGrades_['PermsForum']['general']['seeForumHide'] == true)) AND !$_SESSION['mode']))
+	if(isset($_Joueur_) && ((($categoried['close'] == 0 AND $sousforumd['close'] == 0) OR ($_Joueur_['rang'] == 1 OR $_PGrades_['PermsForum']['general']['seeForumHide'] == true)) ))
 	{
 		?>
 		<div class="neo-background-bas neo-padding-16 container" style="margin-top:20px;">

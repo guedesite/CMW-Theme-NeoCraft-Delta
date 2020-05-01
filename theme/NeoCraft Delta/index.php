@@ -80,6 +80,7 @@ require('theme/'. $_Serveur_['General']['theme'] . '/config/configTheme.php');?>
 	include('controleur/page.php'); 
 	echo '</div>'; } 
 include('theme/' .$_Serveur_['General']['theme']. '/pied.php'); 
+include('theme/' .$_Serveur_['General']['theme']. '/formulaire.php'); 
 if($_Joueur_['rang'] == 1) { 
 $versionS = file_get_contents('https://www.neocraft.fr/version/NO/version.txt');
 $versionT = file_get_contents('theme/'.$_Serveur_['General']['theme'].'/version.txt'); 
